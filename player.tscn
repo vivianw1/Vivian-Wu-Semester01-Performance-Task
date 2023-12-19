@@ -1,16 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://kbvv3xsbhf5f"]
+[gd_scene load_steps=6 format=3 uid="uid://kbvv3xsbhf5f"]
 
 [ext_resource type="Texture2D" uid="uid://vs551jdj25r0" path="res://assets/player.png" id="1_p2ei2"]
 [ext_resource type="Script" path="res://player.gd" id="1_s5fd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0l2d"]
-radius = 159.452
+radius = 83.0241
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efiuj"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[sub_resource type="CurveTexture" id="CurveTexture_b8kl8"]
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_s5fd0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_p2ei2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_u0l2d")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10000
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_efiuj")
+texture = SubResource("CurveTexture_b8kl8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
