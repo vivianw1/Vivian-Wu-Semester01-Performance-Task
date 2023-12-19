@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://clwpo83yorvtm" path="res://assets/enemy.png" id="1_dtt2k"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bmouk"]
-radius = 104.0
-height = 316.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhbcj"]
+radius = 144.17
 
 [node name="Enemy" type="RigidBody2D"]
 gravity_scale = 2.66454e-15
@@ -14,5 +13,5 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_dtt2k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 26)
-shape = SubResource("CapsuleShape2D_bmouk")
+position = Vector2(-28, 14)
+shape = SubResource("CircleShape2D_vhbcj")

@@ -6,11 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0l2d"]
 radius = 83.0241
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efiuj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e2jxg"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+orbit_velocity_min = -336.84
+orbit_velocity_max = 1000.0
+angle_min = 22.7
+angle_max = 37.9
+color = Color(0.0156863, 1, 1, 1)
 
 [sub_resource type="CurveTexture" id="CurveTexture_b8kl8"]
 
@@ -25,9 +27,9 @@ texture = ExtResource("1_p2ei2")
 shape = SubResource("CircleShape2D_u0l2d")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 10000
-sub_emitter = NodePath(".")
-process_material = SubResource("ParticleProcessMaterial_efiuj")
+position = Vector2(0, -1)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_e2jxg")
 texture = SubResource("CurveTexture_b8kl8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
